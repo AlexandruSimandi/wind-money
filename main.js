@@ -15,6 +15,9 @@ $(document).ready(function(){
 	$('#btn-start').on('click', function(){
 		clearInterval(interval);
 		interval = setInterval(function(){
+			if(column.length > 100){
+				column.splice(1, 1);
+			}
 			var seed = Math.random() / 10 - 0.05;
 			money *= seed + 1;
 			//$('#money-value').html(money);
@@ -24,6 +27,6 @@ $(document).ready(function(){
 					column
 				]
 			});
-		}, 500);
+		}, 400);
 	});
 });
