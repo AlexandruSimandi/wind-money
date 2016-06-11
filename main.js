@@ -52,7 +52,7 @@ $(document).ready(function(){
 			}
 			var seed = Math.random() / 10 - 0.05;
 			stock_unit *= seed + 1;
-			stock_unit = Math.round(stock_unit * 1000) / 1000
+			stock_unit = Math.round(stock_unit * 10000) / 10000
 			$('#stock-unit').html('Stock unit value: ' + stock_unit);
 			today.setDate(today.getDate() + 1)
 			days.push(today.toJSON().slice(0,10));
