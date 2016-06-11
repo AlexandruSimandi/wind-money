@@ -25,6 +25,16 @@ var gameModule = (function(){
                         type: 'category',
                         categories: _days
                     }
+                },
+                grid: {
+                    y: {
+                        lines: [
+                            {
+                                value: 5,
+                                text: 'Initial'
+                            }
+                    ]
+                    }
                 }
             });
 
