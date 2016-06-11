@@ -2,6 +2,9 @@ $(document).ready(function(){
 	var cash = 100;
 	var stock_count = 0;
 
+	var today = new Date();
+	var days = [today.toJSON().slice(0,10)];
+
 
 	var stock_unit = 5;
 	var column = ['stock value', stock_unit];
@@ -11,7 +14,13 @@ $(document).ready(function(){
 			columns: [
 				column
 			]
-		}
+		},
+		axis: {
+			x: {
+				type: 'category',
+				categories: days
+			}
+    	}
 	});
 
 	var interval;
@@ -39,10 +48,13 @@ $(document).ready(function(){
 		interval = setInterval(function(){
 			if(column.length > 20){
 				column.splice(1, 1);
+				days.splice(1, 1);
 			}
 			var seed = Math.random() / 10 - 0.05;
 			stock_unit *= seed + 1;
 			$('#stock-unit').html('Stock unit value: ' + stock_unit);
+			today.setDate(today.getDate() + 1)
+			days.push(today.toJSON().slice(0,10));
 			column.push(stock_unit);
 			chart.load({
 				columns: [
